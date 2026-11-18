@@ -1,7 +1,7 @@
 require("dotenv").config();
 const mongoose = require("mongoose");
-
 const express = require("express");
+const protect = require("./middleware/authMiddleware");
 
 const app = express();
 app.use(express.json());
@@ -12,6 +12,10 @@ app.get("/", (req, res) => {
 
 app.get("/api/test", (req, res) => {
   res.json({ message: "API is working", app: "TeamBoard" });
+});
+
+app.get("/api/me", protect, (req, res) => {
+  res.json({ message: "You are logged in", userId: req.userId });
 });
 
 mongoose
