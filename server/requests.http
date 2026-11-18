@@ -18,3 +18,17 @@ Content-Type: application/json
 }
 ### Protected route
 GET http://localhost:5000/api/me
+
+### Create project
+POST http://localhost:5000/api/projects
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTAwODA1MSwiZXhwIjoxNzk1NjEyODUxfQ.OSKRVwd02qoLiiRWI-X_WVbFenft55fm9AjdS_PBdTA
+
+{
+  "name": "College Fest Website",
+  "description": "Plan and build the fest site"
+}
+
+### My projects
+GET http://localhost:5000/api/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTAwODA1MSwiZXhwIjoxNzk1NjEyODUxfQ.OSKRVwd02qoLiiRWI-X_WVbFenft55fm9AjdS_PBdTA
