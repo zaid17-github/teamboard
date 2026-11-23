@@ -59,3 +59,22 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0Z
 ### Delete task
 DELETE http://localhost:5000/api/projects/tasks/6b0402809055d98868944c2b
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNjM5MiwiZXhwIjoxNzk2MDMxMTkyfQ.GnEOen_BCBRF6HM6KMIy_X4tHgxmg4r1bAYLD1wdLvU
+
+### Register second user
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Neha",
+  "email": "neha@gmail.com",
+  "password": "123456"
+}
+
+### Add member
+POST http://localhost:5000/api/projects/6afda6c5b79bcab72129b4d0/members
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNDU5MiwiZXhwIjoxNzk2MDI5MzkyfQ.s0fRaxNMvTDxdnMZdCGS523BmWqFw-tmgvSP0C-y_gA 
+
+{
+  "email": "neha@gmail.com"
+}
