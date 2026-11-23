@@ -31,7 +31,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0Z
 
 ### My projects
 GET http://localhost:5000/api/projects
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNDM0NSwiZXhwIjoxNzk2MDI5MTQ1fQ.DEHxyb4YmqFxL5uXFPIxAttdr5NRmG4mVM8STNrHIyg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNzU5NywiZXhwIjoxNzk2MDMyMzk3fQ.0SUNzEy_1qCePQbP935mQbOsHgrdMZZ5Z334OcveVnM
 
 ### Create task
 POST http://localhost:5000/api/projects/6afda6c5b79bcab72129b4d0/tasks
@@ -77,4 +77,13 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0Z
 
 {
   "email": "neha@gmail.com"
+}
+
+### Login Neha
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "neha@gmail.com",
+  "password": "123456"
 }
