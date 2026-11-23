@@ -55,3 +55,34 @@ exports.getProjectTasks = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+exports.updateTask = async (req, res) => {
+  try {
+    const { taskId } = req.params;
+
+    const task = await Task.findById(taskId);
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+
+    const project = await Project.findById(task.project);
+    if (!project.members.includes(req.userId)) {
+      return res.status(403).json({ message: "You are not a member of this project" });
+    }
+
+    const { title, description, status, priority, dueDate, assignedTo } = req.body;
+
+    if (title !== undefined) task.title = title;
+    if (description !== undefined) task.description = description;
+    if (status !== undefined) task.status = status;
+    if (priority !== undefined) task.priority = priority;
+    if (dueDate !== undefined) task.dueDate = dueDate;
+    if (assignedTo !== undefined) task.assignedTo = assignedTo;
+
+    await task.save();
+    res.json(task);
+  } catch (error) {
+    console.log("Update task error:", error.message);
+    res.status(500).json({ message: "Server error" });
+  }
+};

@@ -46,3 +46,12 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0Z
 ### List tasks
 GET http://localhost:5000/api/projects/6afda6c5b79bcab72129b4d0/tasks
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNDU5MiwiZXhwIjoxNzk2MDI5MzkyfQ.s0fRaxNMvTDxdnMZdCGS523BmWqFw-tmgvSP0C-y_gA
+
+### Update task
+PUT http://localhost:5000/api/projects/tasks/6b04017f9055d98868944c2a
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNDU5MiwiZXhwIjoxNzk2MDI5MzkyfQ.s0fRaxNMvTDxdnMZdCGS523BmWqFw-tmgvSP0C-y_gA
+
+{
+  "status": "done"
+}
