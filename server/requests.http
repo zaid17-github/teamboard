@@ -22,7 +22,7 @@ GET http://localhost:5000/api/me
 ### Create project
 POST http://localhost:5000/api/projects
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTAwODA1MSwiZXhwIjoxNzk1NjEyODUxfQ.OSKRVwd02qoLiiRWI-X_WVbFenft55fm9AjdS_PBdTA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTAwOTIzMSwiZXhwIjoxNzk1NjE0MDMxfQ.7ftmvZdRRIj_8K20Ag6O41vCFqX4XVGJ1-nHhbAWGgE 
 
 {
   "name": "College Fest Website",
@@ -31,4 +31,18 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0Z
 
 ### My projects
 GET http://localhost:5000/api/projects
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTAwODA1MSwiZXhwIjoxNzk1NjEyODUxfQ.OSKRVwd02qoLiiRWI-X_WVbFenft55fm9AjdS_PBdTA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNDM0NSwiZXhwIjoxNzk2MDI5MTQ1fQ.DEHxyb4YmqFxL5uXFPIxAttdr5NRmG4mVM8STNrHIyg
+
+### Create task
+POST http://localhost:5000/api/projects/6afda6c5b79bcab72129b4d0/tasks
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNDU5MiwiZXhwIjoxNzk2MDI5MzkyfQ.s0fRaxNMvTDxdnMZdCGS523BmWqFw-tmgvSP0C-y_gA
+
+{
+  "title": "Build homepage",
+  "priority": "medium"
+}
+
+### List tasks
+GET http://localhost:5000/api/projects/6afda6c5b79bcab72129b4d0/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNDU5MiwiZXhwIjoxNzk2MDI5MzkyfQ.s0fRaxNMvTDxdnMZdCGS523BmWqFw-tmgvSP0C-y_gA
