@@ -86,3 +86,25 @@ exports.updateTask = async (req, res) => {
     res.status(500).json({ message: "Server error" });
   }
 };
+
+exports.deleteTask = async (req, res) => {
+  try {
+    const { taskId } = req.params;
+
+    const task = await Task.findById(taskId);
+    if (!task) {
+      return res.status(404).json({ message: "Task not found" });
+    }
+
+    const project = await Project.findById(task.project);
+    if (!project.members.includes(req.userId)) {
+      return res.status(403).json({ message: "You are not a member of this project" });
+    }
+
+    await task.deleteOne();
+    res.json({ message: "Task deleted" });
+  } catch (error) {
+    console.log("Delete task error:", error.message);
+    res.status(500).json({ message: "Server error" });
+  }
+};

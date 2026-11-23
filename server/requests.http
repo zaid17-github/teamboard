@@ -55,3 +55,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0Z
 {
   "status": "done"
 }
+
+### Delete task
+DELETE http://localhost:5000/api/projects/tasks/6b0402809055d98868944c2b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjZhZjljYjI0ZmM5Yjc3MTI4MmZhODczZiIsImlhdCI6MTc5NTQyNjM5MiwiZXhwIjoxNzk2MDMxMTkyfQ.GnEOen_BCBRF6HM6KMIy_X4tHgxmg4r1bAYLD1wdLvU
