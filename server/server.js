@@ -1,3 +1,4 @@
+const cors = require("cors");
 require("dotenv").config();
 const mongoose = require("mongoose");
 const express = require("express");
@@ -5,6 +6,7 @@ const protect = require("./middleware/authMiddleware");
 
 const app = express();
 app.use(express.json());
+app.use(cors());
 app.use("/api/auth", require("./routes/authRoutes"));
 app.use("/api/projects", require("./routes/projectRoutes"));
 app.get("/", (req, res) => {
