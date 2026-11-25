@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import api from "../api/api";
+import { Link } from "react-router-dom";
 
 function Dashboard() {
   const [projects, setProjects] = useState([]);
@@ -52,7 +53,7 @@ function Dashboard() {
 
       {projects.map((p) => (
         <div key={p._id}>
-          <h3>{p.name}</h3>
+          <h3><Link to={'/projects/${p.id}'}>{p.name}</Link></h3>
           <p>{p.description}</p>
         </div>
       ))}
