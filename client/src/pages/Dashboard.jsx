@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import api from "../api/api";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Dashboard() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
   const [projects, setProjects] = useState([]);
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -34,6 +40,7 @@ function Dashboard() {
     <div>
       <h2>My Projects</h2>
 
+      <button onClick={handleLogout}>Logout</button>
       <form onSubmit={handleCreate}>
         <input
           placeholder="Project name"
