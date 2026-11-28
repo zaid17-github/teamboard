@@ -10,16 +10,45 @@ const columns = [
 
 function Board() {
   const { projectId } = useParams();
+  console.log("projectId is:", projectId);
   const [tasks, setTasks] = useState([]);
+  const [title, setTitle] = useState("");
+const [priority, setPriority] = useState("medium");
 
-  useEffect(() => {
-    api.get(`/projects/${projectId}/tasks`).then((res) => setTasks(res.data));
-  }, [projectId]);
+const loadTasks = async () => {
+  const res = await api.get(`/projects/${projectId}/tasks`);
+  setTasks(res.data);
+};
+
+const handleAdd = async (e) => {
+  e.preventDefault();
+  if (!title) return;
+  await api.post(`/projects/${projectId}/tasks`, { title, priority });
+  setTitle("");
+  loadTasks();
+};
+
+ useEffect(() => {
+  loadTasks();
+}, [projectId]);
 
   return (
     <div>
       <Link to="/dashboard">Back to projects</Link>
       <h2>Board</h2>
+      <form onSubmit={handleAdd} style={{ marginBottom: "20px" }}>
+  <input
+    placeholder="New task title"
+    value={title}
+    onChange={(e) => setTitle(e.target.value)}
+  />
+  <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+    <option value="low">Low</option>
+    <option value="medium">Medium</option>
+    <option value="high">High</option>
+  </select>
+  <button type="submit">Add task</button>
+</form>
 
       <div style={{ display: "flex", gap: "20px" }}>
         {columns.map((col) => (

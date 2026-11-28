@@ -53,7 +53,7 @@ function Dashboard() {
 
       {projects.map((p) => (
         <div key={p._id}>
-          <h3><Link to={'/projects/${p.id}'}>{p.name}</Link></h3>
+          <h3><Link to={`/projects/${p._id}`}>{p.name}</Link></h3>
           <p>{p.description}</p>
         </div>
       ))}
